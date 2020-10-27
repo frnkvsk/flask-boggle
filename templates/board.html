@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{%  block title %}<title>Board</title>{% endblock %}
+
+{% block content %}
+
+<div class = 'container text-center'>
+    <h1 class = 'text-center'>Boggle Board</h1>
+    <table class = 'table table-bordered text-center'>
+        <tbody>
+            {% for row in board %}
+            <tr>
+                {% for data in row %}
+                <td>{{data}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- action = "/board" , method= 'POST' -->
+    <div id='message' class = 'hidden'>message</div>
+    <form class="form-group">
+        <div class="row">
+            <div class="col-3">
+                <label for="user-guess">Found a word? </label>
+            </div>
+            <div class="col-3">
+                <input type="text" name = "user-guess" class="input-sm form-control" id= 'user-input'>
+            </div>
+            <div class="col-3">
+                <button class = 'btn btn-danger mb-2'>Check!</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

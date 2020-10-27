@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Boggle{% endblock title %}
+
+{% block content %}
+    
+    <section class="main container">
+        <div id="mainDisplay" class="hidden boggle">
+            <h1 class="header">Boggle Game</h1>
+            <div id="container">
+                <div class="row">
+                    <div class="col-4" id="time"> <p id="time">Time: </p>  <p>60</p></div>
+                    <div class="col-4" id="score"> <p id="score">Score: </p> <p>0</p></div>
+                </div>        
+            </div>        
+            <table class="table">
+                <tbody class="tbody">
+                    {% for row in board %}
+                    <tr>
+                    {% for td in row %}
+                        <td>{{ td }}</td>
+                    {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="container">
+                <input type="text" class="form-control" autofocus required>
+                <button class="btn btn-success btnMain" type="submit">Guess</button>            
+            </div>
+            <div class="jumbotron">
+                <p class="correct-guesses"></p>
+            </div>
+        </div>        
+    </section>
+    <section class="option container">
+        <div id="optionDisplay" class="boggle">
+            <div class="start">
+                <div class="startOfGameDisplay">        
+                    <div class="form">
+                        <h1 class="newGameHeader">Start New Game</h1>
+                        <h2 id="gameOverScore" class="hidden"></h2>
+                        <div>
+                            <label for="rowsCount">Enter the number of rows:</label>
+                            <input type="text" class="rowsCount" maxlength="1" autofocus>
+                        </div>
+                        <div>
+                            <label for="colsCount">Enter the number of columns:</label>
+                            <input type="text" class="colsCount" maxlength="1">
+                        </div>            
+                        <button class="btn btn-success btnStart">Start Boggling</button>
+                        <h5>Minimum rows is 5 and minimum cols is also 5.</h5>
+                        <h5>Maximum rows is 9 and maximum cols is also 9.</h5>
+                    </div>
+                </div>
+            </div>  
+        </div>        
+    </section>
+       
+{% endblock content %}
